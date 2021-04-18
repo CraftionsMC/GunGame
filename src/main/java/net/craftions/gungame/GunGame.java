@@ -8,6 +8,8 @@ import net.craftions.gungame.config.Config;
 import net.craftions.gungame.events.EventPlayerDeath;
 import net.craftions.gungame.events.EventPlayerJoin;
 import net.craftions.gungame.events.EventPlayerMove;
+import net.craftions.gungame.level.Level0;
+import net.craftions.gungame.level.Levels;
 import net.craftions.gungame.logger.Logger;
 import net.craftions.gungame.util.FileUtil;
 import org.bukkit.Bukkit;
@@ -51,6 +53,8 @@ public class GunGame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventPlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerDeath(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerMove(), this);
+
+        Levels.lvls.put(0, new Level0());
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

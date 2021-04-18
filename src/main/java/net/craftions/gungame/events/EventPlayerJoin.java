@@ -4,6 +4,7 @@
 package net.craftions.gungame.events;
 
 import net.craftions.gungame.config.Config;
+import net.craftions.gungame.level.Levels;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,5 +20,6 @@ public class EventPlayerJoin implements Listener {
             e.setJoinMessage("");
         }
         e.getPlayer().teleport((Location) Config.getInstance("c").get("spawn"));
+        e.getPlayer().getInventory().setContents(Levels.lvls.get(0).getInventory().getContents());
     }
 }

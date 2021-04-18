@@ -5,10 +5,7 @@ package net.craftions.gungame;
 
 import net.craftions.gungame.commands.CommandSetSpawn;
 import net.craftions.gungame.config.Config;
-import net.craftions.gungame.events.EventPlayerDeath;
-import net.craftions.gungame.events.EventPlayerJoin;
-import net.craftions.gungame.events.EventPlayerMove;
-import net.craftions.gungame.events.EventPlayerRespawn;
+import net.craftions.gungame.events.*;
 import net.craftions.gungame.level.Level0;
 import net.craftions.gungame.level.Level1;
 import net.craftions.gungame.level.Levels;
@@ -56,6 +53,7 @@ public class GunGame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventPlayerDeath(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerMove(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerRespawn(), this);
+        Bukkit.getPluginManager().registerEvents(new EventItemDrop(), this);
 
         Levels.lvls.put(0, new Level0());
         Levels.lvls.put(1, new Level1());

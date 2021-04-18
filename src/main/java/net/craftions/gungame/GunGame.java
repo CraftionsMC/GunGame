@@ -51,6 +51,7 @@ public class GunGame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventPlayerMove(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerRespawn(), this);
         Bukkit.getPluginManager().registerEvents(new EventItemDrop(), this);
+        Bukkit.getPluginManager().registerEvents(new EventInventoryClick(), this);
 
         Levels.lvls.put(0, new Level0());
         Levels.lvls.put(1, new Level1());

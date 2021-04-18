@@ -10,13 +10,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
+import java.util.logging.Level;
+
 public class EventPlayerRespawn implements Listener {
 
     @EventHandler
     public void onRespawn(PlayerRespawnEvent e){
         try {
             e.setRespawnLocation((Location) Config.getInstance("c").get("spawn"));
-            e.getPlayer().getInventory().setContents(Levels.lvls.get(Levels.plvls.get(e.getPlayer())).getInventory().getContents());
+            Levels.updateLevel(e.getPlayer());
         }catch (NullPointerException ex){}
     }
 

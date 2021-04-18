@@ -14,6 +14,7 @@ public class Levels {
 
     public static void updateLevel(Player p){
         p.getInventory().setContents(lvls.get(plvls.get(p.getName())).getInventory().getContents());
+        p.setLevel(plvls.get(p.getName()));
     }
 
     public static void subtractLevelIfPossible(Player p){
@@ -24,7 +25,7 @@ public class Levels {
     }
 
     public static void addLevelIfPossible(Player p) {
-        if(plvls.get(p.getName()) < lvls.size()){
+        if(plvls.get(p.getName()) < lvls.size() - 1){
             plvls.put(p.getName(), plvls.get(p.getName()) + 1);
             updateLevel(p);
         }

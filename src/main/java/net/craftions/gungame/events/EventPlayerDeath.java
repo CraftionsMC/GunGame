@@ -16,13 +16,14 @@ public class EventPlayerDeath implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e){
-        e.setKeepInventory(true);
-        e.getEntity().sendMessage("DUDE");
-        e.getEntity().sendMessage("DUDE " + Levels.plvls.get(e.getEntity().getName()));
+        e.getDrops().clear();
+        e.setDroppedExp(0);
         e.setDeathMessage("");
         Levels.subtractLevelIfPossible(e.getEntity());
         if(e.getEntity().getKiller() != null){
             Levels.addLevelIfPossible(e.getEntity().getKiller());
+            e.getEntity().getKiller().setHealth(e.getEntity().getKiller().getMaxHealth());
+            e.getEntity().getKiller().setFoodLevel(20);
         }
     }
 }

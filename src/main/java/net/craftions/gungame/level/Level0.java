@@ -16,7 +16,6 @@ public class Level0 implements Level{
         Inventory inv = Bukkit.createInventory(null, InventoryType.PLAYER);
         ItemStack woodenAxe = new ItemStack(Material.WOODEN_AXE);
         inv.setItem(0, woodenAxe);
-        System.out.println("Test");
         return inv;
     }
 

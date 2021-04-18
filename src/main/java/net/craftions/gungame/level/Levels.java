@@ -12,6 +12,10 @@ public class Levels {
     public static HashMap<Integer, Level> lvls = new HashMap<>();
     public static HashMap<String, Integer> plvls = new HashMap<>();
 
+    public static void addLevel(Level l){
+        lvls.put(l.getLevel(), l);
+    }
+
     public static void updateLevel(Player p){
         p.getInventory().setContents(lvls.get(plvls.get(p.getName())).getInventory().getContents());
         p.setLevel(plvls.get(p.getName()));

@@ -53,17 +53,18 @@ public class GunGame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventItemDrop(), this);
         Bukkit.getPluginManager().registerEvents(new EventInventoryClick(), this);
 
-        Levels.lvls.put(0, new Level0());
-        Levels.lvls.put(1, new Level1());
-        Levels.lvls.put(2, new Level2());
-        Levels.lvls.put(3, new Level3());
-        Levels.lvls.put(4, new Level4());
-        Levels.lvls.put(5, new Level5());
-        Levels.lvls.put(6, new Level6());
-        Levels.lvls.put(7, new Level7());
-        Levels.lvls.put(8, new Level8());
-        Levels.lvls.put(9, new Level9());
-        Levels.lvls.put(10, new Level10());
+        Levels.addLevel(new Level0());
+        Levels.addLevel(new Level1());
+        Levels.addLevel(new Level2());
+        Levels.addLevel(new Level3());
+        Levels.addLevel(new Level4());
+        Levels.addLevel(new Level5());
+        Levels.addLevel(new Level6());
+        Levels.addLevel(new Level7());
+        Levels.addLevel(new Level8());
+        Levels.addLevel(new Level9());
+        Levels.addLevel(new Level10());
+        Levels.addLevel(new Level11());
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

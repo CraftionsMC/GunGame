@@ -6,14 +6,11 @@ package net.craftions.gungame;
 import net.craftions.gungame.commands.CommandSetSpawn;
 import net.craftions.gungame.config.Config;
 import net.craftions.gungame.events.*;
-import net.craftions.gungame.level.Level0;
-import net.craftions.gungame.level.Level1;
-import net.craftions.gungame.level.Levels;
+import net.craftions.gungame.level.*;
 import net.craftions.gungame.logger.Logger;
 import net.craftions.gungame.util.FileUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -57,6 +54,15 @@ public class GunGame extends JavaPlugin {
 
         Levels.lvls.put(0, new Level0());
         Levels.lvls.put(1, new Level1());
+        Levels.lvls.put(2, new Level2());
+        Levels.lvls.put(3, new Level3());
+        Levels.lvls.put(4, new Level4());
+        Levels.lvls.put(5, new Level5());
+        Levels.lvls.put(6, new Level6());
+        Levels.lvls.put(7, new Level7());
+        Levels.lvls.put(8, new Level8());
+        Levels.lvls.put(9, new Level9());
+        Levels.lvls.put(10, new Level10());
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

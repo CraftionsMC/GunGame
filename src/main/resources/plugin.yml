@@ -5,3 +5,7 @@ api-version: 1.13
 author: MCTzOCK
 load: POSTWORLD
 website: https://craftions.net
+commands:
+  setspawn:
+    permission: gungame.command.setspawn
+    usage: /setspawn

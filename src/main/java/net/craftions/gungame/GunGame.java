@@ -3,7 +3,9 @@
  */
 package net.craftions.gungame;
 
+import net.craftions.gungame.commands.CommandSetSpawn;
 import net.craftions.gungame.config.Config;
+import net.craftions.gungame.logger.Logger;
 import net.craftions.gungame.util.FileUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,15 +24,26 @@ public class GunGame extends JavaPlugin {
             try {
                 cfgFile.createNewFile();
                 FileWriter w = new FileWriter(cfgFile);
-                w.write("prefix: [§5GunGame§r]");
+                w.write("prefix: [§5GunGame§r]\n");
+                w.write("spawn:\n");
+                w.write("\t==: org.bukkit.Location\n");
+                w.write("\tworld: world\n");
+                w.write("\tx: 0\n");
+                w.write("\ty: 0\n");
+                w.write("\tz: 0\n");
+                w.write("\tpitch: 0\n");
+                w.write("\tyaw: 0\n");
                 w.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         Config _c = new Config(cfgFile, "c");
+        Logger.initLogger();
+
+        getCommand("setspawn").setExecutor(new CommandSetSpawn());
+
+        Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();
     }
-
-
 }

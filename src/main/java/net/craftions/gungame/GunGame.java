@@ -8,7 +8,9 @@ import net.craftions.gungame.config.Config;
 import net.craftions.gungame.events.EventPlayerDeath;
 import net.craftions.gungame.events.EventPlayerJoin;
 import net.craftions.gungame.events.EventPlayerMove;
+import net.craftions.gungame.events.EventPlayerRespawn;
 import net.craftions.gungame.level.Level0;
+import net.craftions.gungame.level.Level1;
 import net.craftions.gungame.level.Levels;
 import net.craftions.gungame.logger.Logger;
 import net.craftions.gungame.util.FileUtil;
@@ -31,15 +33,15 @@ public class GunGame extends JavaPlugin {
             try {
                 cfgFile.createNewFile();
                 FileWriter w = new FileWriter(cfgFile);
-                w.write("prefix: [§5GunGame§r]\n");
+                w.write("prefix: \"[§5GunGame§r]\"\n");
                 w.write("spawn:\n");
-                w.write("\t==: org.bukkit.Location\n");
-                w.write("\tworld: world\n");
-                w.write("\tx: 0\n");
-                w.write("\ty: 0\n");
-                w.write("\tz: 0\n");
-                w.write("\tpitch: 0\n");
-                w.write("\tyaw: 0\n");
+                w.write("  ==: org.bukkit.Location\n");
+                w.write("  world: world\n");
+                w.write("  x: 0\n");
+                w.write("  y: 0\n");
+                w.write("  z: 0\n");
+                w.write("  pitch: 0\n");
+                w.write("  yaw: 0\n");
                 w.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -53,8 +55,10 @@ public class GunGame extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventPlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerDeath(), this);
         Bukkit.getPluginManager().registerEvents(new EventPlayerMove(), this);
+        Bukkit.getPluginManager().registerEvents(new EventPlayerRespawn(), this);
 
         Levels.lvls.put(0, new Level0());
+        Levels.lvls.put(1, new Level1());
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

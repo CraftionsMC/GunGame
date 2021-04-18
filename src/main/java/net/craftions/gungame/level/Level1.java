@@ -9,19 +9,18 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class Level0 implements Level{
+public class Level1 implements Level{
 
     @Override
     public Inventory getInventory() {
         Inventory inv = Bukkit.createInventory(null, InventoryType.PLAYER);
-        ItemStack woodenAxe = new ItemStack(Material.WOODEN_AXE);
-        inv.setItem(0, woodenAxe);
-        System.out.println("Test");
+        ItemStack stoneSword = new ItemStack(Material.STONE_SWORD);
+        inv.setItem(0, stoneSword);
         return inv;
     }
 
     @Override
     public Integer getLevel() {
-        return 0;
+        return 1;
     }
 }

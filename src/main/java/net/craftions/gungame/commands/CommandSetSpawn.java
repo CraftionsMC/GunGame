@@ -5,6 +5,7 @@ package net.craftions.gungame.commands;
 
 import net.craftions.gungame.config.Config;
 import net.craftions.gungame.logger.Logger;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,8 @@ public class CommandSetSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(sender instanceof Player){
             Config.getInstance("c").set("spawn", ((Player) sender).getLocation());
-            sender.sendMessage(Logger.prefix + "§cThe spawn was successfully set!");
+            Config.getInstance("c").reload(true);
+            sender.sendMessage(Logger.prefix + ChatColor.GREEN + "The spawn was successfully set!");
         }else {
             Logger.error("You need to be a player in order to run this command!");
         }

@@ -1,0 +1,7 @@
+name: GunGame
+main: net.craftions.gungame.GunGame
+version: 1.0-SNAPSHOT
+api-version: 1.13
+author: MCTzOCK
+load: POSTWORLD
+website: https://craftions.net

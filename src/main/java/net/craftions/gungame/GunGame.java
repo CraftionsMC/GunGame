@@ -5,9 +5,14 @@ package net.craftions.gungame;
 
 import net.craftions.gungame.commands.CommandSetSpawn;
 import net.craftions.gungame.config.Config;
+import net.craftions.gungame.events.EventPlayerDeath;
+import net.craftions.gungame.events.EventPlayerJoin;
+import net.craftions.gungame.events.EventPlayerMove;
 import net.craftions.gungame.logger.Logger;
 import net.craftions.gungame.util.FileUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -42,6 +47,10 @@ public class GunGame extends JavaPlugin {
         Logger.initLogger();
 
         getCommand("setspawn").setExecutor(new CommandSetSpawn());
+
+        Bukkit.getPluginManager().registerEvents(new EventPlayerJoin(), this);
+        Bukkit.getPluginManager().registerEvents(new EventPlayerDeath(), this);
+        Bukkit.getPluginManager().registerEvents(new EventPlayerMove(), this);
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

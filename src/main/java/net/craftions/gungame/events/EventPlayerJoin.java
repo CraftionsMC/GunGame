@@ -23,7 +23,7 @@ public class EventPlayerJoin implements Listener {
         e.getPlayer().teleport((Location) Config.getInstance("c").get("spawn"));
         e.getPlayer().setHealth(e.getPlayer().getMaxHealth());
         e.getPlayer().setFoodLevel(20);
-        Levels.plvls.put(e.getPlayer(), 1);
-        e.getPlayer().getInventory().setContents(Levels.lvls.get(1).getInventory().getContents());
+        Levels.plvls.put(e.getPlayer().getName(), 0);
+        e.getPlayer().getInventory().setContents(Levels.lvls.get(0).getInventory().getContents());
     }
 }

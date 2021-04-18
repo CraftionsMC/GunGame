@@ -13,7 +13,7 @@ public class Level9 implements Level{
     public Inventory getInventory() {
         Inventory inv = Levels.lvls.get(getLevel() - 1).getInventory();
         ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);
-        inv.setItem(101, leggings);
+        inv.setItem(37, leggings);
         return inv;
     }
 

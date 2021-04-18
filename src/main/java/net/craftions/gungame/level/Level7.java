@@ -13,7 +13,7 @@ public class Level7 implements Level{
     public Inventory getInventory() {
         Inventory inv = Levels.lvls.get(getLevel() - 1).getInventory();
         ItemStack head = new ItemStack(Material.CHAINMAIL_HELMET);
-        inv.setItem(103, head);
+        inv.setItem(39, head);
         return inv;
     }
 

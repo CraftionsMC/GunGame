@@ -4,6 +4,7 @@
 package net.craftions.gungame.events;
 
 import net.craftions.gungame.config.Config;
+import net.craftions.gungame.level.Level;
 import net.craftions.gungame.level.Levels;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -16,9 +17,11 @@ public class EventPlayerDeath implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e){
         e.setKeepInventory(true);
+        e.getEntity().sendMessage("DUDE");
+        e.getEntity().sendMessage("DUDE " + Levels.plvls.get(e.getEntity().getName()));
         e.setDeathMessage("");
         Levels.subtractLevelIfPossible(e.getEntity());
-        if(e.getEntity().getKiller() instanceof Player){
+        if(e.getEntity().getKiller() != null){
             Levels.addLevelIfPossible(e.getEntity().getKiller());
         }
     }

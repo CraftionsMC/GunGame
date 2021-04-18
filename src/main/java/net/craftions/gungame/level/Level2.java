@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 public class Level2 implements Level{
 
@@ -17,7 +18,7 @@ public class Level2 implements Level{
         ItemStack stoneSword = new ItemStack(Material.STONE_SWORD);
         ItemStack head = new ItemStack(Material.LEATHER_HELMET);
         inv.setItem(0, stoneSword);
-        inv.setItem(103, head);
+        inv.setItem(39, head);
         return inv;
     }
 

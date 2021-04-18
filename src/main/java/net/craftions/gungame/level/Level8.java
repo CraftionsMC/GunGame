@@ -13,7 +13,7 @@ public class Level8 implements Level{
     public Inventory getInventory() {
         Inventory inv = Levels.lvls.get(getLevel() - 1).getInventory();
         ItemStack chestPlate = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
-        inv.setItem(102, chestPlate);
+        inv.setItem(38, chestPlate);
         return inv;
     }
 

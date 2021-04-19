@@ -69,6 +69,7 @@ public class GunGame extends JavaPlugin {
         Levels.addLevel(new Level13());
         Levels.addLevel(new Level14());
         Levels.addLevel(new Level15());
+        Levels.addLevel(new Level16());
 
         Logger.info("Welcome to GunGame v" + this.getDescription().getVersion() + " by MCTzOCK");
         super.onEnable();

@@ -12,6 +12,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.Objects;
+
 public class EventPlayerJoin implements Listener {
 
     @EventHandler
@@ -26,6 +28,6 @@ public class EventPlayerJoin implements Listener {
         e.getPlayer().setFoodLevel(20);
         Levels.plvls.put(e.getPlayer().getName(), 0);
         e.getPlayer().getInventory().setContents(Levels.lvls.get(0).getInventory().getContents());
-        e.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(16);
+        Objects.requireNonNull(e.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED)).setBaseValue(16.0);
     }
 }

@@ -3,6 +3,7 @@
  */
 package net.craftions.gungame.events;
 
+import net.craftions.coinsystem.env.spigot.Coinsystem;
 import net.craftions.gungame.config.Config;
 import net.craftions.gungame.level.Level;
 import net.craftions.gungame.level.Levels;
@@ -24,6 +25,8 @@ public class EventPlayerDeath implements Listener {
             Levels.addLevelIfPossible(e.getEntity().getKiller());
             e.getEntity().getKiller().setHealth(e.getEntity().getKiller().getMaxHealth());
             e.getEntity().getKiller().setFoodLevel(20);
+            Coinsystem.coins.addCoins(e.getEntity().getKiller().getUniqueId().toString(), 50);
+            e.getEntity().getKiller().sendMessage("§eYou got 50 coins!");
         }
     }
 }

@@ -5,6 +5,7 @@ package net.craftions.gungame.events;
 
 import net.craftions.gungame.config.Config;
 import net.craftions.gungame.level.Levels;
+import net.craftions.gungame.util.PlayerUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
@@ -18,11 +19,7 @@ public class EventPlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
-        if(e.getPlayer().hasPermission("gungame.join.visible")) {
-            e.setJoinMessage(ChatColor.RED + e.getPlayer().getName() + ChatColor.GRAY + " joined " + ChatColor.RED + "GunGame");
-        }else {
-            e.setJoinMessage("");
-        }
+        e.setJoinMessage(ChatColor.RED + PlayerUtil.getNameWithPrefix(e.getPlayer()) + ChatColor.GRAY + " joined " + ChatColor.RED + "the game");
         e.getPlayer().teleport((Location) Config.getInstance("c").get("spawn"));
         e.getPlayer().setHealth(e.getPlayer().getMaxHealth());
         e.getPlayer().setFoodLevel(20);
